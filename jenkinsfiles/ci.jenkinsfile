@@ -1,46 +1,5 @@
-#!groovy
-
-@Library('jenkinslibrary@master') _
-
-//func from shareibrary
-def build = new org.devops.build()
-def deploy = new org.devops.deploy()
-def tools = new org.devops.tools()
-def gitlab = new org.devops.gitlab()
-def toemail = new org.devops.toemail()
-def sonar = new org.devops.sonarqube()
-def sonarapi = new org.devops.sonarapi()
-def nexus = new org.devops.nexus()
-def artifactory = new org.devops.artifactory() 
-
-
-def runOpts
-//env
-String buildType = "${env.buildType}"
-String buildShell = "${env.buildShell}"
-String deployHosts = "${env.deployHosts}"
-String srcUrl = "${env.srcUrl}"
-String branchName = "${env.branchName}"
-String artifactUrl = "${env.artifactUrl}"
-
-
-if ("${runOpts}" == "GitlabPush"){
-    branchName = branch - "refs/heads/"
-    
-    currentBuild.description = "Trigger by ${userName} ${branch}"
-    gitlab.ChangeCommitStatus(projectId,commitSha,"running")
-    env.runOpts = "GitlabPush"
-
-    
-} else {
-   userEmail = "2560350642@qq.com"
-}
-
-
-//pipeline
 pipeline{
-    agent { node { label "build"}}
-    
+    agent { node { label "master"}}
     
     stages{
 
