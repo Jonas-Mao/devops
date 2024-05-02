@@ -13,7 +13,7 @@ String branchName = "${env.branchName}"
 
 //pipeline
 pipeline{
-    agent { node { label "build"}}    
+    agent { node { label "master"}}    
     stages{
         stage("CheckOut"){
             steps{
