@@ -1,18 +1,15 @@
 #!groovy
 
-@Library('jenkinslibrary@master') _
+@Library('jenkinslib@main') _
 
-//func from shareibrary
 def build = new org.devops.build()
 def tools = new org.devops.tools()
 def toemail = new org.devops.toemail()
 
-//env
 String buildType = "${env.buildType}"
 String buildShell = "${env.buildShell}"
 String srcUrl = "${env.srcUrl}"
 String branchName = "${env.branchName}"
-
 
 //pipeline
 pipeline{
@@ -21,7 +18,7 @@ pipeline{
         stage("CheckOut"){
             steps{
                 script{
-                  
+                  checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: '9f204832-aa65-4b58-bb8e-5b69f5031e0d', url: 'https://github.com/Jonas-Mao/demo-maven-service.git']])
                 }
             }
         }
