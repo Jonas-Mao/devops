@@ -10,7 +10,10 @@ String buildType = "${env.buildType}"
 String buildShell = "${env.buildShell}"
 String srcUrl = "${env.srcUrl}"
 String branchName = "${env.branchName}"
+
 String runOpts = "${env.runOpts}"
+String userName = "${env.userName}"
+String branch = "${env.branch}"
 
 currentBuild.description = "Trigger by ${userName} ${branch}"
 
