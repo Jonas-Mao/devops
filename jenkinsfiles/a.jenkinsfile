@@ -12,7 +12,7 @@ String srcUrl = "${env.srcUrl}"
 String branchName = "${env.branchName}"
 String runOpts = "${env.runOpts}"
 
-currentBuild.description = "Trigger by ${userName} ${ref}"
+currentBuild.description = "Trigger by ${userName} ${branch}"
 
 //pipeline
 pipeline{
