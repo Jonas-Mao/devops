@@ -26,7 +26,7 @@ pipeline{
             steps{
                 script{
                     tools.PrintMes("执行打包","green")
-                    build.Build(buildType,buildShell)
+                    //build.Build(buildType,buildShell)
                 }
             }
        }
