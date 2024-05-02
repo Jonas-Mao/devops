@@ -10,6 +10,7 @@ String buildType = "${env.buildType}"
 String buildShell = "${env.buildShell}"
 String srcUrl = "${env.srcUrl}"
 String branchName = "${env.branchName}"
+String runOpts = "${env.runOpts}"
 
 //pipeline
 pipeline{
