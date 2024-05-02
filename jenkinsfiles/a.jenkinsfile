@@ -18,7 +18,7 @@ pipeline{
         stage("CheckOut"){
             steps{
                 script{
-                  println(${runOpts})
+                  println("${runOpts}")
                   tools.PrintMes('获取代码','green')
                   checkout scmGit(branches: [[name: "${branchName}"]], extensions: [], userRemoteConfigs: [[credentialsId: '9f204832-aa65-4b58-bb8e-5b69f5031e0d', url: "${srcUrl}"]])
                 }
